@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 
 /** Form for creating a new box to add to boxList/
- * 
+ *
  * Has state for width/height/color of the box
  * sends {width, height, color} to function received from parent
- * 
+ *
  * BoxList -> NewBoxForm
-*/
+ */
 
 function NewBoxForm(props) {
-  const initialState = { 
+  const initialState = {
     width: 0,
     height: 0,
-    backgroundColor: ""
-  }
+    color: "",
+  };
   const [formData, setFormData] = useState(initialState);
 
   /** Send {width, height, color} to parent & clear form */
   function handleSubmit(evt) {
     evt.preventDefault();
-    props.addBox(formData); //TODO:
+    props.addBox(formData);
     setFormData(initialState);
   }
 
   /** Update local state with current state of input element */
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData(fData => ({
+    setFormData((fData) => ({
       ...fData,
-      [name]: value
+      [name]: value,
     }));
   }
 

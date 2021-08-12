@@ -1,19 +1,31 @@
-import { NewBoxForm } from "./BoxList";
-
-/**TODO:*/
+/** Renders a box
+ *
+ * Props:
+ * - width, number
+ * - height, number
+ * - color, string
+ * - value, UUID
+ *
+ * BoxList -> Box
+ */
 
 function Box(props) {
   let style = {
-    width: props.width,
-    height: props.height,
-    backgroundColor: props.color
+    width: `${props.width}px`,
+    height: `${props.height}px`,
+    backgroundColor: props.color,
+  };
+
+  function removeBox(evt) {
+    props.handleRemove();
   }
+
   return (
     <div>
       <div style={style}></div>
-      <button onClick={props.handleRemove}>Remove the box!</button>
+      <button onClick={removeBox}>Remove the box!</button>
     </div>
-  )
+  );
 }
 
 export default Box;
