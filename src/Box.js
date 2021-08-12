@@ -21,7 +21,7 @@ function Box(props) {
   }
 
   return (
-    <div>
+    <div className="Box">
       <div style={style}></div>
       <button onClick={removeBox}>Remove the box!</button>
     </div>
